@@ -1,724 +1,2111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>Semangat Space • Premium Coworking Johor Bahru</title>
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --primary: #0ABAB5;
-      --secondary: #FF69B4;
-      --accent: #006400;
-      --dark-blue: #003366;
-      --light: #F8F9FA;
-      --dark: #212529;
-      --gray: #6C757D;
-      --light-gray: #e9ecef;
-      --shadow: 0 12px 28px rgba(0, 0, 0, 0.04), 0 0 1px rgba(0,0,0,0.08);
-      --transition: all 0.25s ease;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--light);
-      color: var(--dark);
-      line-height: 1.5;
-      overflow-x: hidden;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    section {
-      padding: 80px 0;
-      position: relative;
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 3.5rem;
-    }
-
-    .section-header h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--accent);
-      letter-spacing: -0.5px;
-      margin-bottom: 0.75rem;
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    .section-header p {
-      color: var(--gray);
-      max-width: 600px;
-      margin: 0 auto;
-      font-size: 1.1rem;
-    }
-
-    /* header */
-    header {
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(12px);
-      box-shadow: var(--shadow);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-      padding: 14px 0;
-      transition: padding 0.2s;
-    }
-
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      gap: 12px;
-    }
-
-    .logo-mini {
-      width: 44px;
-      height: 44px;
-      position: relative;
-    }
-
-    .logo-mini-circle {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: rgba(10, 186, 181, 0.12);
-      box-shadow: 0 0 12px rgba(10,186,181,0.25);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .logo-mini-inner {
-      width: 68%;
-      height: 68%;
-      border-radius: 50%;
-      background: rgba(10, 186, 181, 0.18);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .logo-mini-core {
-      width: 42%;
-      height: 42%;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-    }
-
-    .logo-text {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .logo-main {
-      font-size: 1.5rem;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      color: var(--accent);
-      line-height: 1.2;
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    .logo-sub {
-      font-size: 0.7rem;
-      letter-spacing: 1.8px;
-      color: var(--primary);
-      font-weight: 500;
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--dark);
-      font-weight: 500;
-      transition: var(--transition);
-      position: relative;
-      font-size: 0.95rem;
-    }
-
-    .nav-links a:hover {
-      color: var(--secondary);
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -4px;
-      left: 0;
-      background: var(--secondary);
-      transition: var(--transition);
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.8rem;
-      cursor: pointer;
-      color: var(--accent);
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 28px;
-      border-radius: 40px;
-      font-weight: 600;
-      text-decoration: none;
-      text-align: center;
-      transition: var(--transition);
-      font-size: 0.95rem;
-      border: none;
-      cursor: pointer;
-      font-family: 'Poppins', sans-serif;
-      letter-spacing: 0.3px;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: white;
-      box-shadow: 0 8px 18px rgba(10,186,181,0.3);
-    }
-
-    .btn-primary:hover {
-      background: #08918c;
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary {
-      background: var(--secondary);
-      color: white;
-      box-shadow: 0 8px 18px rgba(255,105,180,0.3);
-    }
-
-    .btn-secondary:hover {
-      background: #e0559c;
-      transform: translateY(-2px);
-    }
-
-    .btn-dark {
-      background: var(--dark-blue);
-      color: white;
-      box-shadow: 0 8px 18px rgba(0,51,102,0.3);
-    }
-
-    .btn-dark:hover {
-      background: #002244;
-      transform: translateY(-2px);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--accent);
-      border: 2px solid var(--accent);
-    }
-
-    .btn-outline:hover {
-      background: var(--accent);
-      color: white;
-    }
-
-    /* hero */
-    .hero {
-      background: linear-gradient(130deg, rgba(10,186,181,0.92) 0%, rgba(0,100,0,0.88) 100%), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover;
-      color: white;
-      padding: 170px 0 90px;
-      text-align: center;
-      position: relative;
-    }
-
-    .logo-container {
-      position: relative;
-      width: 180px;
-      height: 180px;
-      margin: 0 auto 20px;
-    }
-
-    .logo-circle {
-      position: absolute;
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      background: rgba(10,186,181,0.15);
-      box-shadow: 0 0 30px rgba(10,186,181,0.3);
-      top: 20px;
-      left: 20px;
-      animation: pulse 20s infinite;
-    }
-
-    .logo-inner {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      background: rgba(10,186,181,0.15);
-      margin: 25px auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .logo-core {
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      position: relative;
-    }
-
-    .hero h1 {
-      font-size: 3.5rem;
-      font-weight: 700;
-      font-family: 'Montserrat', sans-serif;
-      text-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      margin-top: 0.5rem;
-    }
-
-    .hero .lead {
-      font-size: 1.3rem;
-      max-width: 720px;
-      margin: 1.5rem auto 2rem;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 1.2rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
-
-    .audience-tags {
-      margin-top: 2.5rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    .audience-tag {
-      background: rgba(255,255,255,0.18);
-      backdrop-filter: blur(8px);
-      padding: 8px 18px;
-      border-radius: 30px;
-      font-size: 0.85rem;
-      font-weight: 500;
-    }
-
-    /* spaces */
-    .spaces-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2.2rem;
-    }
-
-    .space-card {
-      background: white;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-      border-top: 4px solid var(--secondary);
-    }
-
-    .space-card:hover {
-      transform: translateY(-8px);
-    }
-
-    .space-image {
-      height: 200px;
-      background-size: cover;
-      background-position: center;
-    }
-
-    .space-content {
-      padding: 1.8rem;
-    }
-
-    .space-price {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--primary);
-    }
-
-    .space-features {
-      list-style: none;
-      margin: 1.5rem 0;
-    }
-
-    .space-features li {
-      padding: 0.4rem 0 0.4rem 1.8rem;
-      position: relative;
-    }
-
-    .space-features li::before {
-      content: "✓";
-      color: var(--accent);
-      position: absolute;
-      left: 0;
-      font-weight: bold;
-    }
-
-    /* pricing */
-    .pricing-table {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-    }
-
-    .pricing-card {
-      background: white;
-      border-radius: 24px;
-      padding: 2.5rem 1.8rem;
-      box-shadow: var(--shadow);
-      text-align: center;
-      border-top: 4px solid var(--primary);
-    }
-
-    .pricing-card.featured {
-      border: 2px solid var(--secondary);
-      transform: scale(1.03);
-    }
-
-    .price {
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: var(--primary);
-    }
-
-    /* audience */
-    .audience-section {
-      background: linear-gradient(135deg, rgba(255,105,180,0.9) 0%, rgba(10,186,181,0.9) 100%);
-      color: white;
-    }
-
-    .audience-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-
-    .audience-card {
-      background: rgba(255,255,255,0.92);
-      border-radius: 20px;
-      padding: 2rem;
-      color: var(--dark);
-    }
-
-    /* location */
-    .location {
-      background: linear-gradient(135deg, #0a8680, #004d00);
-      color: white;
-    }
-
-    .location-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-    }
-
-    .contact-form {
-      background: white;
-      padding: 2.2rem;
-      border-radius: 24px;
-      color: var(--dark);
-    }
-
-    .form-control {
-      width: 100%;
-      padding: 14px 16px;
-      border: 1px solid #ddd;
-      border-radius: 16px;
-      margin-top: 6px;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    footer {
-      background: var(--accent);
-      color: white;
-      padding: 50px 0 25px;
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        background: white;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        padding: 20px;
-      }
-      .nav-links.active {
-        display: flex;
-      }
-      .mobile-menu-btn {
-        display: block;
-      }
-      .location-content {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.04); }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semangat Space - Premium Coworking in Johor Bahru</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* === CSS VARIABLES === */
+        :root {
+            --primary: #0ABAB5;
+            --secondary: #FF69B4;
+            --accent: #006400;
+            --dark-blue: #003366;
+            --light-gray-blue: #003366;
+            --light: #F8F9FA;
+            --dark: #212529;
+            --gray: #6C757D;
+            --light-gray: #e9ecef;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        /* === HEADER & NAVIGATION === */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 15px;
+        }
+
+        .logo-mini {
+            width: 50px;
+            height: 50px;
+            position: relative;
+        }
+
+        .logo-mini-circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: rgba(10, 186, 181, 0.1);
+            box-shadow: 0 0 10px rgba(10, 186, 181, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-mini-inner {
+            width: 70%;
+            height: 70%;
+            border-radius: 50%;
+            background: rgba(10, 186, 181, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-mini-core {
+            width: 40%;
+            height: 40%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-main {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .logo-sub {
+            font-size: 0.7rem;
+            color: var(--primary);
+            letter-spacing: 1.5px;
+            margin-top: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* === BUTTONS === */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(10, 186, 181, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: #08918c;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(10, 186, 181, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background-color: #e0559c;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .btn-dark {
+            background-color: var(--dark-blue);
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 51, 102, 0.3);
+        }
+
+        .btn-dark:hover {
+            background-color: #002244;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 51, 102, 0.4);
+        }
+
+        /* === HERO SECTION === */
+        .hero {
+            background: linear-gradient(135deg, rgba(10, 186, 181, 0.9) 0%, rgba(0, 100, 0, 0.85) 100%), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover;
+            color: white;
+            padding: 180px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero .lead {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .audience-tags {
+            margin-top: 3rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .audience-tag {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .audience-tag:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* === ANIMATED LOGO STYLES === */
+        .logo-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+        
+        .logo-circle {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: rgba(10, 186, 181, 0.09);
+            box-shadow: 0 0 30px rgba(10, 186, 181, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 25s infinite ease-in-out;
+        }
+        
+        .logo-inner {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: rgba(10, 186, 181, 0.08);
+            box-shadow: 0 0 20px rgba(10, 186, 181, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-core {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            box-shadow: 0 0 25px rgba(10, 186, 181, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logo-core::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            animation: shine 10s infinite linear;
+        }
+        
+        .connecting-lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            height: 1px;
+            width: 200px;
+            top: 50%;
+            left: 0;
+            transform-origin: center;
+            opacity: 0.6;
+        }
+        
+        .line:nth-child(1) { transform: rotate(0deg); }
+        .line:nth-child(2) { transform: rotate(45deg); }
+        .line:nth-child(3) { transform: rotate(90deg); }
+        .line:nth-child(4) { transform: rotate(135deg); }
+        
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .element {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: rgba(10, 186, 181, 0.7);
+            box-shadow: 0 0 10px rgba(10, 186, 181, 0.5);
+        }
+        
+        .element:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation: float 12s infinite ease-in-out;
+        }
+        
+        .element:nth-child(2) {
+            top: 15%;
+            right: 20%;
+            animation: float 15s infinite ease-in-out;
+            animation-delay: 1s;
+        }
+        
+        .element:nth-child(3) {
+            bottom: 25%;
+            left: 15%;
+            animation: float 18s infinite ease-in-out;
+            animation-delay: 2s;
+        }
+        
+        .element:nth-child(4) {
+            bottom: 15%;
+            right: 10%;
+            animation: float 14s infinite ease-in-out;
+            animation-delay: 3s;
+        }
+
+        .logo-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .logo-subtitle {
+            font-size: 1rem;
+            font-weight: 400;
+            letter-spacing: 6px;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
+        
+        .slogan {
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--gray);
+            margin-top: 1rem;
+            position: relative;
+            padding: 0 1rem;
+        }
+        
+        .slogan::before, .slogan::after {
+            content: "~";
+            position: absolute;
+            top: 0;
+            color: var(--primary);
+        }
+        
+        .slogan::before {
+            left: 0;
+        }
+        
+        .slogan::after {
+            right: 0;
+        }
+
+        /* === SPACES SECTION === */
+        .spaces {
+            background-color: white;
+        }
+
+        .spaces-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .space-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--secondary);
+            position: relative;
+        }
+
+        .space-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .space-image {
+            height: 220px;
+            background-color: var(--gray);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .space-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+        }
+
+        .space-content {
+            padding: 2rem;
+        }
+
+        .space-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .space-features {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .space-features li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .space-features li:before {
+            content: "✓";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* === AMENITIES SECTION === */
+        .amenities {
+            background-color: var(--light-gray);
+        }
+
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .amenity-item {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 4px solid var(--primary);
+        }
+
+        .amenity-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .amenity-icon {
+            font-size: 3.5rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .amenity-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .amenity-item p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* === PRICING SECTION === */
+        .pricing-table {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .pricing-card.featured {
+            border-color: var(--secondary);
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .price {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 1.5rem 0;
+        }
+
+        .price-period {
+            font-size: 1rem;
+            color: var(--gray);
+            font-weight: 400;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .pricing-features li {
+            padding: 0.7rem 0;
+            position: relative;
+            padding-left: 2rem;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        .pricing-features li:before {
+            content: "✓";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* === TARGET AUDIENCE SECTION === */
+        .audience-section {
+            background: linear-gradient(135deg, rgba(255, 105, 180, 0.9) 0%, rgba(10, 186, 181, 0.9) 100%), url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover;
+            color: white;
+            position: relative;
+        }
+
+        .audience-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        .audience-section h2, .audience-section h3 {
+            color: white;
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .audience-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            color: var(--dark);
+            backdrop-filter: blur(10px);
+        }
+
+        .audience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .audience-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .audience-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .audience-card p {
+            color: var(--gray);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* === LOCATION SECTION === */
+        .location {
+            background: linear-gradient(135deg, rgba(10, 186, 181, 0.9) 0%, rgba(0, 100, 0, 0.9) 100%), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3') center/cover;
+            color: white;
+            position: relative;
+        }
+
+        .location::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        .location h2, .location h3 {
+            color: white;
+        }
+
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .location-info {
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            margin: 1.5rem 0;
+        }
+
+        .contact-info div {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.05rem;
+        }
+
+        .contact-info div strong {
+            min-width: 120px;
+        }
+
+        /* === CONTACT FORM === */
+        .contact-form {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--accent);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: var(--transition);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(10, 186, 181, 0.2);
+        }
+
+        /* === FOOTER === */
+        footer {
+            background-color: var(--accent);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo {
+            width: 60px;
+            height: 60px;
+            position: relative;
+            margin-right: 15px;
+        }
+
+        .footer-logo-circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-logo-inner {
+            width: 70%;
+            height: 70%;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-logo-core {
+            width: 40%;
+            height: 40%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, white 0%, var(--primary) 100%);
+        }
+
+        .footer-logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-logo-main {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .footer-logo-sub {
+            font-size: 0.7rem;
+            color: var(--primary);
+            letter-spacing: 1.2px;
+            margin-top: 2px;
+        }
+
+        .footer-about p {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        /* === ANIMATIONS === */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.9; }
+        }
+        
+        @keyframes shine {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(10px, -15px); }
+            50% { transform: translate(-5px, 10px); }
+            75% { transform: translate(15px, 5px); }
+        }
+
+        /* === RESPONSIVE DESIGN === */
+        @media (max-width: 992px) {
+            .location-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .pricing-card.featured {
+                transform: none;
+            }
+            
+            .pricing-card.featured:hover {
+                transform: translateY(-5px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero .lead {
+                font-size: 1.2rem;
+            }
+            
+            .logo-container {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .logo-circle {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .logo-inner {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .logo-core {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .line {
+                width: 150px;
+            }
+            
+            .logo-title {
+                font-size: 1.8rem;
+            }
+            
+            .logo-subtitle {
+                font-size: 0.9rem;
+                letter-spacing: 4px;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 1.5rem 0;
+                box-shadow: var(--shadow);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .hero-buttons .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .space-card, .amenity-item, .pricing-card, .audience-card {
+                padding: 1.5rem;
+            }
+            
+            .contact-form {
+                padding: 1.5rem;
+            }
+        }
+
+        /* ---------- EVENT HALL SECTION (blended) ---------- */
+        .evh-event-section {
+            padding: 80px 0;
+            background: #f9fbfd;
+            font-family: 'Poppins', sans-serif;
+            color: #212529;
+            line-height: 1.6;
+        }
+
+        .evh-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .evh-section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .evh-section-header h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #006400;
+            margin-bottom: 0.5rem;
+        }
+
+        .evh-section-header .evh-lead {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .evh-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            align-items: start;
+            margin-bottom: 3rem;
+        }
+
+        .evh-gallery {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.08);
+            background: #fff;
+        }
+
+        .evh-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            will-change: transform;
+        }
+
+        .evh-slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .evh-slide img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .evh-slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.65));
+            color: white;
+            padding: 2rem 1.5rem 1.2rem;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .evh-prev, .evh-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.9);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+            z-index: 5;
+            color: #333;
+        }
+
+        .evh-prev:hover, .evh-next:hover {
+            background: #fff;
+        }
+
+        .evh-prev {
+            left: 16px;
+        }
+
+        .evh-next {
+            right: 16px;
+        }
+
+        .evh-dots {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 5;
+        }
+
+        .evh-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .evh-dot.active {
+            background: #0ABAB5;
+            box-shadow: 0 0 8px rgba(10,186,181,0.6);
+        }
+
+        .evh-interest-box {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.06);
+        }
+
+        .evh-tab-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .evh-tab-btn {
+            background: #e9ecef;
+            border: none;
+            padding: 0.6rem 1.4rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.25s;
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+        }
+
+        .evh-tab-btn:hover {
+            background: #d4d9df;
+        }
+
+        .evh-tab-btn.active {
+            background: #0ABAB5;
+            color: white;
+            box-shadow: 0 6px 14px rgba(10,186,181,0.35);
+        }
+
+        .evh-tab-content {
+            min-height: 220px;
+            transition: opacity 0.25s ease;
+        }
+
+        .evh-content-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #006400;
+            margin-bottom: 0.5rem;
+        }
+
+        .evh-content-desc {
+            color: #444;
+            margin-bottom: 1rem;
+            font-size: 0.98rem;
+        }
+
+        .evh-facilities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 1rem 0;
+        }
+
+        .evh-facility-tag {
+            background: #f0f4f8;
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #0d3b3b;
+        }
+
+        .evh-special-note {
+            background: #fff8e7;
+            border-left: 4px solid #FFA500;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .evh-pricing-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+        .evh-pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+        }
+
+        .evh-pricing-table th {
+            background: #006400;
+            color: white;
+            padding: 12px 16px;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        .evh-pricing-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .evh-perks {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .evh-perk-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        .evh-cta-button {
+            display: inline-block;
+            background: #FF69B4;
+            color: white;
+            padding: 1rem 2.2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            box-shadow: 0 10px 20px rgba(255,105,180,0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 0.5rem;
+        }
+
+        .evh-cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 24px rgba(255,105,180,0.4);
+        }
+
+        @media (max-width: 900px) {
+            .evh-grid {
+                grid-template-columns: 1fr;
+            }
+            .evh-slide img {
+                height: 280px;
+            }
+            .evh-section-header h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <nav class="navbar">
-        <a href="#" class="logo">
-          <div class="logo-mini">
-            <div class="logo-mini-circle"><div class="logo-mini-inner"><div class="logo-mini-core"></div></div></div>
-          </div>
-          <div class="logo-text">
-            <span class="logo-main">SEMANGAT</span>
-            <span class="logo-sub">SPACE</span>
-          </div>
-        </a>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#spaces">Spaces</a></li>
-          <li><a href="#amenities">Amenities</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#audience">For You</a></li>
-          <li><a href="#location">Location</a></li>
-          <li><a href="#contact" class="btn btn-dark" style="padding:8px 20px;">Book a Tour</a></li>
-        </ul>
-        <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
-      </nav>
-    </div>
-  </header>
+    <!-- Header & Navigation (unchanged) -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <div class="logo-mini">
+                        <div class="logo-mini-circle">
+                            <div class="logo-mini-inner">
+                                <div class="logo-mini-core"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="logo-text">
+                        <div class="logo-main">SEMANGAT</div>
+                        <div class="logo-sub">SPACE</div>
+                    </div>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#spaces">Spaces</a></li>
+                    <li><a href="#amenities">Amenities</a></li>
+                    <li><a href="#event-hall">Event Hall</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#audience">For You</a></li>
+                    <li><a href="#location">Location</a></li>
+                    <li><a href="#contact" class="btn btn-dark">Book a Tour</a></li>
+                </ul>
+                <button class="mobile-menu-btn">☰</button>
+            </nav>
+        </div>
+    </header>
 
-  <main>
+    <!-- Hero Section with Animated Logo -->
     <section class="hero" id="home">
-      <div class="container">
-        <div class="logo-container">
-          <div class="logo-circle"><div class="logo-inner"><div class="logo-core"></div></div></div>
+        <div class="container">
+            <div class="logo-container">
+                <div class="logo-circle">
+                    <div class="logo-inner">
+                        <div class="logo-core"></div>
+                    </div>
+                </div>
+                <div class="connecting-lines">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+                <div class="floating-elements">
+                    <div class="element"></div>
+                    <div class="element"></div>
+                    <div class="element"></div>
+                    <div class="element"></div>
+                </div>
+            </div>
+            <div class="logo-text">
+                <h1 class="logo-title">Semangat Space Co-Office</h1>
+                <h2 class="logo-subtitle">Semangat Space</h2>
+                <p class="slogan">We are Together, Bersama</p>
+            </div>
+            <p class="lead">Semangat Space: Where new entrepreneurs, content creators, small businesses, and students find their perfect work environment. Affordable, flexible, and designed for your success.</p>
+            <div class="hero-buttons">
+                <a href="#spaces" class="btn btn-primary">View Spaces</a>
+                <a href="#contact" class="btn btn-dark">Book a Tour</a>
+            </div>
+            <div class="audience-tags">
+                <span class="audience-tag">New Entrepreneurs</span>
+                <span class="audience-tag">Online Creators</span>
+                <span class="audience-tag">Small Businesses</span>
+                <span class="audience-tag">Influencers</span>
+                <span class="audience-tag">Local Connections</span>
+                <span class="audience-tag">Students & Teachers</span>
+            </div>
         </div>
-        <h1>Semangat Space Co-Office</h1>
-        <p style="font-weight:300; letter-spacing:3px;">SEMANGAT SPACE</p>
-        <p style="font-style:italic;">We are Together, Bersama</p>
-        <p class="lead">Affordable coworking for new entrepreneurs, creators, small businesses & students. Your spirit, our space.</p>
-        <div class="hero-buttons">
-          <a href="#spaces" class="btn btn-primary">View Spaces</a>
-          <a href="#contact" class="btn btn-dark">Book a Tour</a>
-        </div>
-        <div class="audience-tags">
-          <span class="audience-tag">New Entrepreneurs</span>
-          <span class="audience-tag">Online Creators</span>
-          <span class="audience-tag">Small Businesses</span>
-          <span class="audience-tag">Students & Teachers</span>
-        </div>
-      </div>
     </section>
 
-    <section id="spaces">
-      <div class="container">
-        <div class="section-header">
-          <h2>Flexible Workspaces</h2>
-          <p>Choose your perfect setup in Kota Putri, Masai</p>
+    <!-- Spaces Section (unchanged) -->
+    <section id="spaces" class="spaces">
+        <div class="container">
+            <div class="section-header">
+                <h2>Flexible Workspaces</h2>
+                <p>Choose the perfect setup for your work style and budget</p>
+            </div>
+            <div class="spaces-grid">
+                <div class="space-card">
+                    <div class="space-image" style="background-image: url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-4.0.3')"></div>
+                    <div class="space-content">
+                        <h3>Hot Desk</h3>
+                        <div class="space-price">From RM 250/month</div>
+                        <p>Perfect for freelancers, students, and those who need flexibility. Work from different spots in our vibrant space.</p>
+                        <ul class="space-features">
+                            <li>Flexible seating options</li>
+                            <li>High-speed WiFi</li>
+                            <li>Access to common areas</li>
+                            <li>Free coffee & tea</li>
+                            <li>Networking opportunities</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-secondary">Inquire Now</a>
+                    </div>
+                </div>
+                <div class="space-card">
+                    <div class="space-image" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3')"></div>
+                    <div class="space-content">
+                        <h3>Dedicated Desk</h3>
+                        <div class="space-price">From RM 450/month</div>
+                        <p>Your own personal space with storage. Perfect for growing businesses and serious creators.</p>
+                        <ul class="space-features">
+                            <li>Personal locker space</li>
+                            <li>24/7 access</li>
+                            <li>Meeting room credits</li>
+                            <li>Mail handling service</li>
+                            <li>Priority booking for events</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-secondary">Inquire Now</a>
+                    </div>
+                </div>
+                <div class="space-card">
+                    <div class="space-image" style="background-image: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3')"></div>
+                    <div class="space-content">
+                        <h3>Private Office</h3>
+                        <div class="space-price">RM 650/month</div>
+                        <p>Fully furnished private rooms for teams of 1-4. Perfect for startups and small businesses.</p>
+                        <ul class="space-features">
+                            <li>Lockable private room</li>
+                            <li>Furniture included</li>
+                            <li>Soundproof walls</li>
+                            <li>All amenities included</li>
+                            <li>Professional business address</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-secondary">Inquire Now</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="spaces-grid">
-          <div class="space-card">
-            <div class="space-image" style="background-image: url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-            <div class="space-content">
-              <h3>Hot Desk</h3>
-              <div class="space-price">RM 250<span style="font-size:1rem;">/month</span></div>
-              <ul class="space-features">
-                <li>Flexible seating</li><li>High-speed WiFi</li><li>Free coffee & tea</li><li>Community events</li>
-              </ul>
-              <a href="#contact" class="btn btn-secondary" style="width:100%;">Inquire</a>
-            </div>
-          </div>
-          <div class="space-card">
-            <div class="space-image" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-            <div class="space-content">
-              <h3>Dedicated Desk</h3>
-              <div class="space-price">RM 450<span style="font-size:1rem;">/month</span></div>
-              <ul class="space-features">
-                <li>Personal locker</li><li>24/7 access</li><li>Meeting room credits</li><li>Mail handling</li>
-              </ul>
-              <a href="#contact" class="btn btn-secondary" style="width:100%;">Inquire</a>
-            </div>
-          </div>
-          <div class="space-card">
-            <div class="space-image" style="background-image: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-            <div class="space-content">
-              <h3>Private Office</h3>
-              <div class="space-price">RM 650<span style="font-size:1rem;">/month</span></div>
-              <ul class="space-features">
-                <li>Lockable room</li><li>Furnished</li><li>Business address</li><li>All amenities</li>
-              </ul>
-              <a href="#contact" class="btn btn-secondary" style="width:100%;">Inquire</a>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <section id="amenities" style="background: #f4f7f6;">
-      <div class="container">
-        <div class="section-header"><h2>Premium Amenities</h2></div>
-        <div class="amenities-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:2rem;">
-          <div class="amenity-item" style="background:white; padding:2rem; border-radius:20px;"><span style="font-size:2.5rem;">🚀</span><h3>High-Speed WiFi</h3></div>
-          <div class="amenity-item" style="background:white; padding:2rem; border-radius:20px;"><span style="font-size:2.5rem;">🎥</span><h3>Content Studio</h3></div>
-          <div class="amenity-item" style="background:white; padding:2rem; border-radius:20px;"><span style="font-size:2.5rem;">☕</span><h3>Cafe & Lounge</h3></div>
-          <div class="amenity-item" style="background:white; padding:2rem; border-radius:20px;"><span style="font-size:2.5rem;">👥</span><h3>Networking Events</h3></div>
+    <!-- Amenities Section (unchanged) -->
+    <section id="amenities" class="amenities">
+        <div class="container">
+            <div class="section-header">
+                <h2>Premium Amenities</h2>
+                <p>Everything you need to do your best work, all included in your membership</p>
+            </div>
+            <div class="amenities-grid">
+                <div class="amenity-item">
+                    <div class="amenity-icon">🚀</div>
+                    <h3>High-Speed Internet</h3>
+                    <p>Gigabit fiber with backup for seamless streaming and uploads</p>
+                </div>
+                <div class="amenity-item">
+                    <div class="amenity-icon">🎥</div>
+                    <h3>Content Studio</h3>
+                    <p>Professional lighting and backdrop for photos and videos</p>
+                </div>
+                <div class="amenity-item">
+                    <div class="amenity-icon">💻</div>
+                    <h3>Tech Support</h3>
+                    <p>Help with setup, software, and digital tools</p>
+                </div>
+                <div class="amenity-item">
+                    <div class="amenity-icon">👥</div>
+                    <h3>Networking Events</h3>
+                    <p>Connect with fellow creators and local businesses</p>
+                </div>
+                <div class="amenity-item">
+                    <div class="amenity-icon">📚</div>
+                    <h3>Learning Hub</h3>
+                    <p>Workshops on digital marketing, branding, and business</p>
+                </div>
+                <div class="amenity-item">
+                    <div class="amenity-icon">☕</div>
+                    <h3>Cafe & Lounge</h3>
+                    <p>Premium coffee, tea, and relaxing break areas</p>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
+    <!-- ========== EVENT HALL SECTION (blended) ========== -->
+    <section class="evh-event-section" id="event-hall">
+        <div class="evh-container">
+            <div class="evh-section-header">
+                <h2>Versatile Event Hall – Fully Equipped & Affordable</h2>
+                <p class="evh-lead">
+                    Looking for the perfect, hassle‑free venue for your next seminar, workshop, or corporate gathering? 
+                    Whether you’re running an intimate training session or a full‑scale presentation, our beautifully maintained, 
+                    fully equipped event hall adapts seamlessly to your needs.
+                </p>
+            </div>
+
+            <div class="evh-grid">
+                <div class="evh-gallery" id="evhGallery">
+                    <div class="evh-slides" id="evhSlides">
+                        <div class="evh-slide">
+                            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Theater style seating with stage and lectern">
+                            <div class="evh-slide-caption">Theater / Seminar Style – rows of comfortable chairs facing the stage</div>
+                        </div>
+                        <div class="evh-slide">
+                            <img src="https://images.unsplash.com/photo-1559223607-a43c990c692c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Classroom setup with long tables and stools">
+                            <div class="evh-slide-caption">Classroom / Workshop Style – long tables, perfect for hands‑on training</div>
+                        </div>
+                        <div class="evh-slide">
+                            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Buffet setup with covered tables for catering">
+                            <div class="evh-slide-caption">Buffet / Catering Setup – dedicated area for food and beverages</div>
+                        </div>
+                        <div class="evh-slide">
+                            <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Stage view with golden skirting and professional lighting">
+                            <div class="evh-slide-caption">Stage & Lighting – adjustable spotlights and elegant gold skirting</div>
+                        </div>
+                        <div class="evh-slide">
+                            <img src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Spacious hall with modern air-conditioning and free WiFi">
+                            <div class="evh-slide-caption">Modern comfort – powerful air‑conditioning, fans & free high‑speed Wi‑Fi</div>
+                        </div>
+                    </div>
+                    <button class="evh-prev" id="evhPrev">&#10094;</button>
+                    <button class="evh-next" id="evhNext">&#10095;</button>
+                    <div class="evh-dots" id="evhDots"></div>
+                </div>
+
+                <div class="evh-interest-box">
+                    <h3 style="margin:0 0 0.8rem; font-family:Montserrat,sans-serif; color:#006400;">I'm interested in...</h3>
+                    <div class="evh-tab-buttons" id="evhTabButtons">
+                        <button class="evh-tab-btn active" data-category="training">Training Hall</button>
+                        <button class="evh-tab-btn" data-category="conference">Conference</button>
+                        <button class="evh-tab-btn" data-category="meeting">Meeting</button>
+                        <button class="evh-tab-btn" data-category="event">Event</button>
+                        <button class="evh-tab-btn" data-category="showcase">Showcase</button>
+                        <button class="evh-tab-btn" data-category="weddings">Weddings</button>
+                        <button class="evh-tab-btn" data-category="workshop">Workshop</button>
+                        <button class="evh-tab-btn" data-category="others">Others</button>
+                    </div>
+                    <div class="evh-tab-content" id="evhTabContent">
+                        <!-- Dynamically filled by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="evh-pricing-card">
+                <h3 style="font-family:Montserrat,sans-serif; color:#006400; margin-top:0;">Affordable Packages & Perks</h3>
+                <div style="overflow-x:auto;">
+                    <table class="evh-pricing-table">
+                        <thead>
+                            <tr>
+                                <th>Rental Options</th>
+                                <th>Rates</th>
+                                <th>Included Perks</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Hourly / Daily Rental</strong></td>
+                                <td><strong>From RM 300</strong></td>
+                                <td>Full access to hall & equipment</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="evh-perks">
+                    <div class="evh-perk-item">🅿️ <span><strong>FREE Carpark</strong> – ample parking for all attendees</span></div>
+                    <div class="evh-perk-item">⏱️ <span><strong>Flexible Bookings</strong> – hourly slots or full‑day packages</span></div>
+                </div>
+                <div style="margin-top:1.8rem; text-align:center;">
+                    <a href="mailto:onec@semangatspace.com?subject=Event%20Hall%20Booking%20Inquiry" class="evh-cta-button">
+                        📞 Book Your Space Today!
+                    </a>
+                    <p style="margin-top:0.8rem; color:#666; font-size:0.9rem;">
+                        Dates fill up fast – contact us now to check availability or schedule a viewing.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section (unchanged) -->
     <section id="pricing">
-      <div class="container">
-        <div class="section-header"><h2>Transparent Pricing</h2></div>
-        <div class="pricing-table">
-          <div class="pricing-card"><h3>Hot Desk</h3><div class="price">RM250</div><p>/month</p><a href="#contact" class="btn btn-outline">Start</a></div>
-          <div class="pricing-card featured"><h3>Dedicated Desk</h3><div class="price">RM450</div><p>/month</p><a href="#contact" class="btn btn-primary">Most Popular</a></div>
-          <div class="pricing-card"><h3>Private Office</h3><div class="price">RM650</div><p>/month</p><a href="#contact" class="btn btn-outline">Start</a></div>
+        <div class="container">
+            <div class="section-header">
+                <h2>Simple, Transparent Pricing</h2>
+                <p>No hidden fees. Student and teacher discounts available.</p>
+            </div>
+            <div class="pricing-table">
+                <div class="pricing-card">
+                    <h3>Hot Desk</h3>
+                    <div class="price">RM 250<span class="price-period">/month</span></div>
+                    <p>Perfect for flexible workers</p>
+                    <ul class="pricing-features">
+                        <li>Open workspace access</li>
+                        <li>High-speed WiFi</li>
+                        <li>Complimentary drinks</li>
+                        <li>Business hours access</li>
+                        <li>Community events</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline">Get Started</a>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>Dedicated Desk</h3>
+                    <div class="price">RM 450<span class="price-period">/month</span></div>
+                    <p>Your own personal space</p>
+                    <ul class="pricing-features">
+                        <li>Guaranteed desk + locker</li>
+                        <li>24/7 secure access</li>
+                        <li>5 meeting room hours/month</li>
+                        <li>Mail handling</li>
+                        <li>Content studio access</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Most Popular</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Private Office</h3>
+                    <div class="price">RM 650<span class="price-period">/month</span></div>
+                    <p>For focused teams</p>
+                    <ul class="pricing-features">
+                        <li>Lockable private room</li>
+                        <li>Fully furnished</li>
+                        <li>All amenities included</li>
+                        <li>10 meeting room hours/month</li>
+                        <li>Professional business address</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline">Get Started</a>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
+    <!-- Target Audience Section (unchanged) -->
     <section id="audience" class="audience-section">
-      <div class="container">
-        <div class="section-header"><h2 style="color:white;">Designed For You</h2></div>
-        <div class="audience-grid">
-          <div class="audience-card"><span style="font-size:2rem;">🚀</span><h3>New Entrepreneurs</h3><p>Low overhead, mentorship, professional meeting space.</p></div>
-          <div class="audience-card"><span style="font-size:2rem;">💻</span><h3>Online Creators</h3><p>Content studio, fast internet for streaming.</p></div>
-          <div class="audience-card"><span style="font-size:2rem;">📚</span><h3>Students & Teachers</h3><p>Special discounts, quiet study zones.</p></div>
+        <div class="container">
+            <div class="section-header">
+                <h2>Designed Specifically For You</h2>
+                <p>Whatever your journey, we have the space and community to support you</p>
+            </div>
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <div class="audience-icon">🚀</div>
+                    <h3>New Entrepreneurs</h3>
+                    <p>Start your business with minimal overhead. Get mentorship, networking opportunities, and professional space to meet clients.</p>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-icon">💻</div>
+                    <h3>Online Creators</h3>
+                    <p>Content studio, fast internet, and collaborative environment perfect for YouTubers, influencers, and digital creators.</p>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-icon">🏢</div>
+                    <h3>Small Businesses</h3>
+                    <p>Professional address, meeting rooms, and flexible terms as you grow. No long-term leases required.</p>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-icon">📚</div>
+                    <h3>Students & Teachers</h3>
+                    <p>Special discounts for academic community. Quiet study areas, group project spaces, and research resources.</p>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-icon">🤝</div>
+                    <h3>Local Connections</h3>
+                    <p>Connect with other professionals in Kota Putri. Regular networking events and business mixers.</p>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-icon">🎯</div>
+                    <h3>Freelancers</h3>
+                    <p>Escape isolation and join a community. Affordable plans perfect for solo professionals and remote workers.</p>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
+    <!-- Location & Contact Section (unchanged) -->
     <section id="location" class="location">
-      <div class="container">
-        <div class="section-header"><h2 style="color:white;">Visit Us</h2></div>
-        <div class="location-content">
-          <div>
-            <p><strong>KOTA PUTRI, MASAI, Johor Bahru</strong></p>
-            <p>📞 01111020565<br>📧 onec@semangatspace.com</p>
-            <p><strong>🎉 50% off first month for new members!</strong></p>
-            <a href="https://maps.app.goo.gl/NSWEfcqrQa2E1jH9A?g_st=ac" target="_blank" class="btn btn-dark">Get Directions</a>
-          </div>
-          <div class="contact-form" id="contact">
-            <h3 style="color:var(--accent);">Register & Get 50% Off</h3>
-            <form id="registrationForm">
-              <input type="text" id="name" class="form-control" placeholder="Full name" required>
-              <input type="email" id="email" class="form-control" placeholder="Email" required>
-              <input type="tel" id="phone" class="form-control" placeholder="Phone" required>
-              <select id="audienceType" class="form-control" required>
-                <option value="">I am a...</option>
-                <option>New Entrepreneur</option><option>Content Creator</option><option>Small Business</option><option>Student</option><option>Teacher</option><option>Freelancer</option>
-              </select>
-              <select id="interest" class="form-control" required>
-                <option value="">Interested in</option>
-                <option>Hot Desk</option><option>Dedicated Desk</option><option>Private Office</option><option>Tour</option>
-              </select>
-              <textarea id="message" class="form-control" rows="3" placeholder="Tell us about your project"></textarea>
-              <button type="submit" class="btn btn-primary" style="width:100%; margin-top:12px;">Send Registration & Claim Discount</button>
-            </form>
-          </div>
+        <div class="container">
+            <div class="section-header">
+                <h2>Visit Us in Kota Putri, Masai</h2>
+                <p>Perfectly located for both city access and industrial areas</p>
+            </div>
+            <div class="location-content">
+                <div class="location-info">
+                    <h3>Our Strategic Location</h3>
+                    <p>Prime location in KOTA PUTRI, MASAI, with easy access from CITY, INDUSTRIAL areas and all major amenities nearby. Perfect for local entrepreneurs and those commuting from across Johor.</p>
+                    <div class="contact-info">
+                        <div><strong>📍 Address:</strong> KOTA PUTRI, MASAI, Johor Bahru</div>
+                        <div><strong>📞 Phone:</strong> 01111020565</div>
+                        <div><strong>📧 Email:</strong> onec@semangatspace.com</div>
+                        <div><strong>🕒 Staffed Hours:</strong> Mon-Fri 12 hours (flexible) | Sat-Sun: On request</div>
+                        <div><strong>🔑 Member Access:</strong> 24/7 with secure entry</div>
+                    </div>
+                    <h3>Special Offers</h3>
+                    <p><strong>Student/Teacher Discount:</strong> 15% off all plans with valid ID<br>
+                    <strong>First Month Special:</strong> 50% off for new members<br>
+                    <strong>Referral Program:</strong> Earn 2 days pass when you refer</p>
+                    <a href="https://maps.app.goo.gl/NSWEfcqrQa2E1jH9A?g_st=ac" class="btn btn-dark" target="_blank">Get Directions</a>
+                </div>
+                <div class="contact-form" id="contact">
+                    <h3>Start Your Journey</h3>
+                    <p>Tell us about your needs and we'll help find the perfect space for you</p>
+                    <div style="background: #fff3e0; border-left: 4px solid #ff9800; padding: 1rem; margin-bottom: 1.5rem; border-radius: 5px;">
+                        <strong>🎉 New Member Special:</strong> Register now and get <strong>50% off your first month</strong>! Fill in the form below and we'll contact you with your discounted membership.
+                    </div>
+                    <form id="tourForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" required placeholder="Your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required placeholder="you@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" required placeholder="011-xxxxxxx">
+                        </div>
+                        <div class="form-group">
+                            <label for="audience-type">I am a...</label>
+                            <select id="audience-type" class="form-control" required>
+                                <option value="">Select your profile</option>
+                                <option value="entrepreneur">New Entrepreneur</option>
+                                <option value="creator">Content Creator/Influencer</option>
+                                <option value="small-business">Small Business Owner</option>
+                                <option value="freelancer">Freelancer/Remote Worker</option>
+                                <option value="student">Student</option>
+                                <option value="teacher">Teacher/Educator</option>
+                                <option value="local-business">Local Business</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="interest">I'm Interested In</label>
+                            <select id="interest" class="form-control" required>
+                                <option value="">Select an option</option>
+                                <option value="hot-desk">Hot Desk</option>
+                                <option value="dedicated-desk">Dedicated Desk</option>
+                                <option value="private-office">Private Office</option>
+                                <option value="meeting-room">Meeting Room</option>
+                                <option value="tour">Just a Tour</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Tell us about your project or business</label>
+                            <textarea id="message" class="form-control" rows="4" placeholder="What are you working on? What do you need to succeed?"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Register & Get 50% Off</button>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
-  </main>
 
-  <footer>
-    <div class="container" style="text-align:center;">
-      <p><strong>SEMANGAT SPACE</strong> · Kota Putri, Masai</p>
-      <p>© 2024 Semangat Space. We are Together, Bersama.</p>
-    </div>
-  </footer>
+    <!-- Footer (unchanged) -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo-container">
+                        <div class="footer-logo">
+                            <div class="footer-logo-circle">
+                                <div class="footer-logo-inner">
+                                    <div class="footer-logo-core"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-logo-text">
+                            <div class="footer-logo-main">SEMANGAT</div>
+                            <div class="footer-logo-sub">SPACE</div>
+                        </div>
+                    </div>
+                    <p>Where great ideas find their spirit. Kota Putri's creative hub for entrepreneurs, creators, students, and local businesses.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#spaces">Spaces</a></li>
+                        <li><a href="#amenities">Amenities</a></li>
+                        <li><a href="#event-hall">Event Hall</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#audience">For You</a></li>
+                        <li><a href="#location">Location</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><a href="#"><strong>📍</strong> KOTA PUTRI, MASAI, JB</a></li>
+                        <li><a href="tel:+60111020565"><strong>📞</strong> 01111020565</a></li>
+                        <li><a href="mailto:onec@semangatspace.com"><strong>📧</strong> onec@semangatspace.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Semangat Space. All rights reserved. | Kota Putri's Creative Hub</p>
+            </div>
+        </div>
+    </footer>
 
-  <script>
-    (function() {
-      const mobileBtn = document.getElementById('mobileMenuBtn');
-      const navLinks = document.getElementById('navLinks');
-      if (mobileBtn && navLinks) {
-        mobileBtn.addEventListener('click', function() {
-          navLinks.classList.toggle('active');
+    <!-- Combined JavaScript (original + event hall scripts) -->
+    <script>
+        // ---------- ORIGINAL SCRIPTS ----------
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
         });
-      }
-      document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-          if (navLinks) navLinks.classList.remove('active');
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
         });
-      });
 
-      // REGISTRATION FORM – sends all info to onec@semangatspace.com
-      const form = document.getElementById('registrationForm');
-      if (form) {
-        form.addEventListener('submit', function(e) {
-          e.preventDefault();
-
-          const name = document.getElementById('name')?.value.trim() || '';
-          const email = document.getElementById('email')?.value.trim() || '';
-          const phone = document.getElementById('phone')?.value.trim() || '';
-          const audience = document.getElementById('audienceType')?.value || '';
-          const interest = document.getElementById('interest')?.value || '';
-          const message = document.getElementById('message')?.value.trim() || '';
-
-          const recipient = 'onec@semangatspace.com';
-          const subject = encodeURIComponent(`New Registration – 50% Discount : ${name}`);
-          const body = encodeURIComponent(
-            `Full Name: ${name}\n` +
-            `Email: ${email}\n` +
-            `Phone: ${phone}\n` +
-            `Profile: ${audience}\n` +
-            `Interested In: ${interest}\n` +
-            `Message: ${message}\n\n` +
-            `---\nSubmitted via Semangat Space website. Eligible for 50% first month discount.`
-          );
-
-          window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
-          
-          alert(`Thank you, ${name}! Your registration is being sent to our team. You're now eligible for the 50% first month discount. If your email client doesn't open, please contact us directly at onec@semangatspace.com.`);
+        // Registration form – sends data to onec@semangatspace.com
+        document.getElementById('tourForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const audienceType = document.getElementById('audience-type').value;
+            const interest = document.getElementById('interest').value;
+            const message = document.getElementById('message').value.trim();
+            const recipient = 'onec@semangatspace.com';
+            const subject = encodeURIComponent('New Member Registration – 50% First Month Discount [' + name + ']');
+            const body = encodeURIComponent(
+                'Full Name: ' + name + '\n' +
+                'Email: ' + email + '\n' +
+                'Phone: ' + phone + '\n' +
+                'Profile: ' + audienceType + '\n' +
+                'Interested In: ' + interest + '\n' +
+                'Message: ' + message + '\n\n' +
+                '---\nThis registration qualifies for the 50% first month discount.\nSubmitted via website registration form.'
+            );
+            window.location.href = 'mailto:' + recipient + '?subject=' + subject + '&body=' + body;
+            alert('Thank you, ' + name + '! Your registration details will be sent to our team. You are now eligible for the 50% first month discount. If your email client does not open, please contact us directly at onec@semangatspace.com.');
         });
-      }
-    })();
-  </script>
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+                header.style.padding = '10px 0';
+            } else {
+                header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.08)';
+                header.style.padding = '15px 0';
+            }
+        });
+
+        // ---------- EVENT HALL SCRIPTS (blended) ----------
+        (function() {
+            const hallData = {
+                training: {
+                    title: "Training Hall Setup",
+                    description: "Classroom / Workshop style with long folding tables and comfortable stools. Perfect for hands‑on training, tuition, examinations, and team meetings.",
+                    facilities: ["Long folding tables", "Functional stools", "Whiteboard area", "High‑speed Wi‑Fi", "Power outlets"],
+                    special: "Ideal for half‑day or full‑day training sessions. Flexible seating arrangement."
+                },
+                conference: {
+                    title: "Conference & Seminar",
+                    description: "Theater / Seminar style seating with elegant black chairs facing the main stage. Professional stage with gold skirting and wooden lectern, supported by dual wireless microphones and powerful PA system.",
+                    facilities: ["Elevated stage + gold skirting", "Wooden lectern", "Dual wireless mics", "PA speaker system", "Track spotlights", "Ceiling cassette air‑cond"],
+                    special: "Designed for corporate talks, product launches, and briefings."
+                },
+                meeting: {
+                    title: "Meeting Room Atmosphere",
+                    description: "Comfortable, configurable setup for team meetings or small gatherings. Enjoy high‑speed Wi‑Fi and powerful air‑conditioning in a quiet, professional environment.",
+                    facilities: ["Flexible furniture layout", "Free Wi‑Fi", "Air‑conditioning & fans", "Quiet ambiance"],
+                    special: "Perfect for board meetings, client presentations, or strategy sessions."
+                },
+                event: {
+                    title: "General Event Space",
+                    description: "All styles available – theater, classroom, or buffet. Full access to audio/visual equipment and adjustable lighting. Customizable for product launches, celebrations, or community events.",
+                    facilities: ["Multiple layout options", "Stage & AV system", "Adjustable spotlights", "Buffet area ready"],
+                    special: "Talk to us about custom floor plans – we’ll set the hall exactly how you need it."
+                },
+                showcase: {
+                    title: "Showcase & Exhibition",
+                    description: "Spotlight lighting and a dedicated stage area make this hall perfect for product showcases, exhibitions, and pop‑up displays. The buffet space can also double as a registration or demo counter.",
+                    facilities: ["Adjustable track spotlights", "Stage with gold skirting", "Buffet / display area", "High‑speed Wi‑Fi"],
+                    special: "Great for brand activations, art shows, or tech demos."
+                },
+                weddings: {
+                    title: "Wedding Reception",
+                    description: "Create unforgettable moments with our elegant gold‑skirted stage, adjustable mood lighting, and dedicated buffet setup. Ample free parking for all your guests.",
+                    facilities: ["Gold skirting stage", "Mood lighting (spotlights)", "Buffet arrangement area", "Free spacious carpark", "Air‑conditioning"],
+                    special: "Make it yours – from solemnization to dinner reception, we help set the scene."
+                },
+                workshop: {
+                    title: "Workshop & Hands‑on Sessions",
+                    description: "Long tables and spacious layout provide the perfect environment for interactive workshops, craft sessions, or collaborative learning.",
+                    facilities: ["Long folding tables", "Comfortable stools", "Free Wi‑Fi", "Flexible time blocks"],
+                    special: "Ideal for creative workshops, coding bootcamps, or team‑building activities."
+                },
+                others: {
+                    title: "Anything Else?",
+                    description: "Our versatile hall can be adapted to almost any gathering – religious events, private parties, networking mixers, and more. Tell us your vision, and we’ll make it happen.",
+                    facilities: ["Custom layout", "Full AV equipment", "Air‑conditioning & fans", "Free parking"],
+                    special: "Contact us for a personalized arrangement and quote."
+                }
+            };
+
+            const tabButtons = document.querySelectorAll('#evhTabButtons .evh-tab-btn');
+            const tabContent = document.getElementById('evhTabContent');
+
+            function updateTabContent(category) {
+                const data = hallData[category];
+                if (!data) return;
+                let facilitiesHtml = '';
+                data.facilities.forEach(f => {
+                    facilitiesHtml += `<span class="evh-facility-tag">${f}</span>`;
+                });
+                const html = `
+                    <div class="evh-content-title">${data.title}</div>
+                    <div class="evh-content-desc">${data.description}</div>
+                    <div class="evh-facilities">${facilitiesHtml}</div>
+                    <div class="evh-special-note">💡 ${data.special}</div>
+                `;
+                tabContent.innerHTML = html;
+            }
+
+            function setActiveTab(button) {
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                const category = button.getAttribute('data-category');
+                updateTabContent(category);
+            }
+
+            tabButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    setActiveTab(this);
+                });
+            });
+
+            const defaultActive = document.querySelector('#evhTabButtons .evh-tab-btn.active');
+            if (defaultActive) {
+                updateTabContent(defaultActive.getAttribute('data-category'));
+            } else {
+                updateTabContent('training');
+                document.querySelector('#evhTabButtons .evh-tab-btn[data-category="training"]').classList.add('active');
+            }
+
+            // Image gallery
+            const slidesContainer = document.getElementById('evhSlides');
+            const slides = document.querySelectorAll('#evhSlides .evh-slide');
+            const prevBtn = document.getElementById('evhPrev');
+            const nextBtn = document.getElementById('evhNext');
+            const dotsContainer = document.getElementById('evhDots');
+            let currentIndex = 0;
+            let autoRotateInterval;
+            const autoRotateDelay = 4500;
+
+            slides.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.classList.add('evh-dot');
+                if (index === 0) dot.classList.add('active');
+                dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+                dot.addEventListener('click', () => goToSlide(index));
+                dotsContainer.appendChild(dot);
+            });
+            const dots = document.querySelectorAll('#evhDots .evh-dot');
+
+            function updateSlides() {
+                slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+                dots.forEach((dot, idx) => {
+                    dot.classList.toggle('active', idx === currentIndex);
+                });
+            }
+
+            function goToSlide(index) {
+                if (index < 0) index = slides.length - 1;
+                if (index >= slides.length) index = 0;
+                currentIndex = index;
+                updateSlides();
+                resetAutoRotate();
+            }
+
+            function nextSlide() { goToSlide(currentIndex + 1); }
+            function prevSlide() { goToSlide(currentIndex - 1); }
+
+            function startAutoRotate() {
+                autoRotateInterval = setInterval(nextSlide, autoRotateDelay);
+            }
+
+            function resetAutoRotate() {
+                clearInterval(autoRotateInterval);
+                startAutoRotate();
+            }
+
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+
+            let touchStartX = 0;
+            let touchEndX = 0;
+            slidesContainer.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, {passive: true});
+            slidesContainer.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+            function handleSwipe() {
+                const diff = touchStartX - touchEndX;
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0) nextSlide();
+                    else prevSlide();
+                }
+            }
+
+            startAutoRotate();
+
+            const gallery = document.getElementById('evhGallery');
+            gallery.addEventListener('mouseenter', () => clearInterval(autoRotateInterval));
+            gallery.addEventListener('mouseleave', startAutoRotate);
+        })();
+    </script>
 </body>
-</html>
+  </html>
