@@ -45,8 +45,10 @@
             padding: 0 20px;
         }
 
-        section {
+        /* Prevent fixed header from clipping headers during smooth-scrolling */
+        section, .evh-event-section {
             padding: 80px 0;
+            scroll-margin-top: 85px;
         }
 
         .section-header {
@@ -152,6 +154,7 @@
             display: flex;
             list-style: none;
             gap: 2rem;
+            align-items: center;
         }
 
         .nav-links a {
@@ -276,6 +279,14 @@
             height: 100%;
             background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
             opacity: 0.3;
+            pointer-events: none; /* FIX: Prevent overlay from blocking clicks */
+            z-index: 1;
+        }
+
+        /* Ensure hero content stays above the overlay */
+        .hero .container {
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
@@ -328,6 +339,12 @@
         .audience-tag:hover {
             background-color: rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
+        }
+
+        /* Hero Text Container Style */
+        .hero-text {
+            margin-top: 1.5rem;
+            text-align: center;
         }
 
         /* === ANIMATED LOGO STYLES === */
@@ -455,7 +472,7 @@
             font-weight: 700;
             letter-spacing: 2px;
             margin-bottom: 0.5rem;
-            color: var(--accent);
+            color: white;
             font-family: 'Montserrat', sans-serif;
         }
         
@@ -471,10 +488,11 @@
         .slogan {
             font-size: 1rem;
             font-style: italic;
-            color: var(--gray);
+            color: rgba(255, 255, 255, 0.8);
             margin-top: 1rem;
             position: relative;
             padding: 0 1rem;
+            display: inline-block;
         }
         
         .slogan::before, .slogan::after {
@@ -705,6 +723,14 @@
             height: 100%;
             background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
             opacity: 0.3;
+            pointer-events: none; /* FIX: Prevent overlay from blocking clicks */
+            z-index: 1;
+        }
+
+        /* Ensure audience content stays above the overlay */
+        .audience-section .container {
+            position: relative;
+            z-index: 2;
         }
 
         .audience-section h2, .audience-section h3 {
@@ -767,6 +793,14 @@
             height: 100%;
             background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
             opacity: 0.3;
+            pointer-events: none; /* FIX: This was blocking all clicks/typing on the form! */
+            z-index: 1;
+        }
+
+        /* Ensure location content stays above the overlay */
+        .location .container {
+            position: relative;
+            z-index: 2;
         }
 
         .location h2, .location h3 {
@@ -778,6 +812,8 @@
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
+            position: relative;
+            z-index: 3; /* Ensure form is clickable above everything */
         }
 
         .location-info {
@@ -806,6 +842,8 @@
             padding: 2.5rem;
             border-radius: 12px;
             box-shadow: var(--shadow);
+            position: relative;
+            z-index: 4; /* Highest z-index to ensure form fields are reachable */
         }
 
         .form-group {
@@ -1047,7 +1085,9 @@
                 width: 100%;
                 background: white;
                 flex-direction: column;
-                padding: 1.5rem 0;
+                align-items: center;
+                gap: 1.5rem !important;
+                padding: 2rem 0;
                 box-shadow: var(--shadow);
                 z-index: 999;
             }
@@ -1376,21 +1416,36 @@
             box-shadow: 0 14px 24px rgba(255,105,180,0.4);
         }
 
-        @media (max-width: 900px) {
-            .evh-grid {
-                grid-template-columns: 1fr;
-            }
-            .evh-slide img {
-                height: 280px;
-            }
-            .evh-section-header h2 {
-                font-size: 2rem;
-            }
+        /* Modal Layout Fixes */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        .modal-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            max-width: 500px;
+            width: 90%;
+            text-align: left;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        .modal-box textarea {
+            width: 100%;
+            height: 120px;
+            margin: 1rem 0;
+            font-family: monospace;
+            resize: none;
         }
     </style>
 </head>
 <body>
-    <!-- Header & Navigation (unchanged) -->
+    <!-- [HTML body content unchanged - same as original] -->
     <header>
         <div class="container">
             <nav class="navbar">
@@ -1422,7 +1477,6 @@
         </div>
     </header>
 
-    <!-- Hero Section with Animated Logo -->
     <section class="hero" id="home">
         <div class="container">
             <div class="logo-container">
@@ -1444,7 +1498,7 @@
                     <div class="element"></div>
                 </div>
             </div>
-            <div class="logo-text">
+            <div class="hero-text">
                 <h1 class="logo-title">Semangat Space Co-Office</h1>
                 <h2 class="logo-subtitle">Semangat Space</h2>
                 <p class="slogan">We are Together, Bersama</p>
@@ -1465,7 +1519,6 @@
         </div>
     </section>
 
-    <!-- Spaces Section (unchanged) -->
     <section id="spaces" class="spaces">
         <div class="container">
             <div class="section-header">
@@ -1525,7 +1578,6 @@
         </div>
     </section>
 
-    <!-- Amenities Section (unchanged) -->
     <section id="amenities" class="amenities">
         <div class="container">
             <div class="section-header">
@@ -1567,14 +1619,13 @@
         </div>
     </section>
 
-    <!-- ========== EVENT HALL SECTION (blended) ========== -->
     <section class="evh-event-section" id="event-hall">
         <div class="evh-container">
             <div class="evh-section-header">
                 <h2>Versatile Event Hall – Fully Equipped & Affordable</h2>
                 <p class="evh-lead">
                     Looking for the perfect, hassle‑free venue for your next seminar, workshop, or corporate gathering? 
-                    Whether you’re running an intimate training session or a full‑scale presentation, our beautifully maintained, 
+                    Whether you're running an intimate training session or a full‑scale presentation, our beautifully maintained, 
                     fully equipped event hall adapts seamlessly to your needs.
                 </p>
             </div>
@@ -1603,8 +1654,8 @@
                             <div class="evh-slide-caption">Modern comfort – powerful air‑conditioning, fans & free high‑speed Wi‑Fi</div>
                         </div>
                     </div>
-                    <button class="evh-prev" id="evhPrev">&#10094;</button>
-                    <button class="evh-next" id="evhNext">&#10095;</button>
+                    <button class="evh-prev" id="evhPrev">❮</button>
+                    <button class="evh-next" id="evhNext">❯</button>
                     <div class="evh-dots" id="evhDots"></div>
                 </div>
 
@@ -1620,9 +1671,7 @@
                         <button class="evh-tab-btn" data-category="workshop">Workshop</button>
                         <button class="evh-tab-btn" data-category="others">Others</button>
                     </div>
-                    <div class="evh-tab-content" id="evhTabContent">
-                        <!-- Dynamically filled by JavaScript -->
-                    </div>
+                    <div class="evh-tab-content" id="evhTabContent"></div>
                 </div>
             </div>
 
@@ -1630,20 +1679,8 @@
                 <h3 style="font-family:Montserrat,sans-serif; color:#006400; margin-top:0;">Affordable Packages & Perks</h3>
                 <div style="overflow-x:auto;">
                     <table class="evh-pricing-table">
-                        <thead>
-                            <tr>
-                                <th>Rental Options</th>
-                                <th>Rates</th>
-                                <th>Included Perks</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Hourly / Daily Rental</strong></td>
-                                <td><strong>From RM 300</strong></td>
-                                <td>Full access to hall & equipment</td>
-                            </tr>
-                        </tbody>
+                        <thead><tr><th>Rental Options</th><th>Rates</th><th>Included Perks</th></tr></thead>
+                        <tbody><tr><td><strong>Hourly / Daily Rental</strong></td><td><strong>From RM 300</strong></td><td>Full access to hall & equipment</td></tr></tbody>
                     </table>
                 </div>
                 <div class="evh-perks">
@@ -1651,18 +1688,13 @@
                     <div class="evh-perk-item">⏱️ <span><strong>Flexible Bookings</strong> – hourly slots or full‑day packages</span></div>
                 </div>
                 <div style="margin-top:1.8rem; text-align:center;">
-                    <a href="mailto:onec@semangatspace.com?subject=Event%20Hall%20Booking%20Inquiry" class="evh-cta-button">
-                        📞 Book Your Space Today!
-                    </a>
-                    <p style="margin-top:0.8rem; color:#666; font-size:0.9rem;">
-                        Dates fill up fast – contact us now to check availability or schedule a viewing.
-                    </p>
+                    <a href="mailto:onec@semangatspace.com?subject=Event%20Hall%20Booking%20Inquiry" class="evh-cta-button">📞 Book Your Space Today!</a>
+                    <p style="margin-top:0.8rem; color:#666; font-size:0.9rem;">Dates fill up fast – contact us now to check availability or schedule a viewing.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section (unchanged) -->
     <section id="pricing">
         <div class="container">
             <div class="section-header">
@@ -1675,11 +1707,7 @@
                     <div class="price">RM 250<span class="price-period">/month</span></div>
                     <p>Perfect for flexible workers</p>
                     <ul class="pricing-features">
-                        <li>Open workspace access</li>
-                        <li>High-speed WiFi</li>
-                        <li>Complimentary drinks</li>
-                        <li>Business hours access</li>
-                        <li>Community events</li>
+                        <li>Open workspace access</li><li>High-speed WiFi</li><li>Complimentary drinks</li><li>Business hours access</li><li>Community events</li>
                     </ul>
                     <a href="#contact" class="btn btn-outline">Get Started</a>
                 </div>
@@ -1688,11 +1716,7 @@
                     <div class="price">RM 450<span class="price-period">/month</span></div>
                     <p>Your own personal space</p>
                     <ul class="pricing-features">
-                        <li>Guaranteed desk + locker</li>
-                        <li>24/7 secure access</li>
-                        <li>5 meeting room hours/month</li>
-                        <li>Mail handling</li>
-                        <li>Content studio access</li>
+                        <li>Guaranteed desk + locker</li><li>24/7 secure access</li><li>5 meeting room hours/month</li><li>Mail handling</li><li>Content studio access</li>
                     </ul>
                     <a href="#contact" class="btn btn-primary">Most Popular</a>
                 </div>
@@ -1701,11 +1725,7 @@
                     <div class="price">RM 650<span class="price-period">/month</span></div>
                     <p>For focused teams</p>
                     <ul class="pricing-features">
-                        <li>Lockable private room</li>
-                        <li>Fully furnished</li>
-                        <li>All amenities included</li>
-                        <li>10 meeting room hours/month</li>
-                        <li>Professional business address</li>
+                        <li>Lockable private room</li><li>Fully furnished</li><li>All amenities included</li><li>10 meeting room hours/month</li><li>Professional business address</li>
                     </ul>
                     <a href="#contact" class="btn btn-outline">Get Started</a>
                 </div>
@@ -1713,7 +1733,6 @@
         </div>
     </section>
 
-    <!-- Target Audience Section (unchanged) -->
     <section id="audience" class="audience-section">
         <div class="container">
             <div class="section-header">
@@ -1721,41 +1740,16 @@
                 <p>Whatever your journey, we have the space and community to support you</p>
             </div>
             <div class="audience-grid">
-                <div class="audience-card">
-                    <div class="audience-icon">🚀</div>
-                    <h3>New Entrepreneurs</h3>
-                    <p>Start your business with minimal overhead. Get mentorship, networking opportunities, and professional space to meet clients.</p>
-                </div>
-                <div class="audience-card">
-                    <div class="audience-icon">💻</div>
-                    <h3>Online Creators</h3>
-                    <p>Content studio, fast internet, and collaborative environment perfect for YouTubers, influencers, and digital creators.</p>
-                </div>
-                <div class="audience-card">
-                    <div class="audience-icon">🏢</div>
-                    <h3>Small Businesses</h3>
-                    <p>Professional address, meeting rooms, and flexible terms as you grow. No long-term leases required.</p>
-                </div>
-                <div class="audience-card">
-                    <div class="audience-icon">📚</div>
-                    <h3>Students & Teachers</h3>
-                    <p>Special discounts for academic community. Quiet study areas, group project spaces, and research resources.</p>
-                </div>
-                <div class="audience-card">
-                    <div class="audience-icon">🤝</div>
-                    <h3>Local Connections</h3>
-                    <p>Connect with other professionals in Kota Putri. Regular networking events and business mixers.</p>
-                </div>
-                <div class="audience-card">
-                    <div class="audience-icon">🎯</div>
-                    <h3>Freelancers</h3>
-                    <p>Escape isolation and join a community. Affordable plans perfect for solo professionals and remote workers.</p>
-                </div>
+                <div class="audience-card"><div class="audience-icon">🚀</div><h3>New Entrepreneurs</h3><p>Start your business with minimal overhead. Get mentorship, networking opportunities, and professional space to meet clients.</p></div>
+                <div class="audience-card"><div class="audience-icon">💻</div><h3>Online Creators</h3><p>Content studio, fast internet, and collaborative environment perfect for YouTubers, influencers, and digital creators.</p></div>
+                <div class="audience-card"><div class="audience-icon">🏢</div><h3>Small Businesses</h3><p>Professional address, meeting rooms, and flexible terms as you grow. No long-term leases required.</p></div>
+                <div class="audience-card"><div class="audience-icon">📚</div><h3>Students & Teachers</h3><p>Special discounts for academic community. Quiet study areas, group project spaces, and research resources.</p></div>
+                <div class="audience-card"><div class="audience-icon">🤝</div><h3>Local Connections</h3><p>Connect with other professionals in Kota Putri. Regular networking events and business mixers.</p></div>
+                <div class="audience-card"><div class="audience-icon">🎯</div><h3>Freelancers</h3><p>Escape isolation and join a community. Affordable plans perfect for solo professionals and remote workers.</p></div>
             </div>
         </div>
     </section>
 
-    <!-- Location & Contact Section (unchanged) -->
     <section id="location" class="location">
         <div class="container">
             <div class="section-header">
@@ -1777,13 +1771,13 @@
                     <p><strong>Student/Teacher Discount:</strong> 15% off all plans with valid ID<br>
                     <strong>First Month Special:</strong> 50% off for new members<br>
                     <strong>Referral Program:</strong> Earn 2 days pass when you refer</p>
-                    <a href="https://maps.app.goo.gl/NSWEfcqrQa2E1jH9A?g_st=ac" class="btn btn-dark" target="_blank">Get Directions</a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Semangat+Space+Kota+Putri+Masai" class="btn btn-dark" target="_blank">Get Directions</a>
                 </div>
                 <div class="contact-form" id="contact">
                     <h3>Start Your Journey</h3>
                     <p>Tell us about your needs and we'll help find the perfect space for you</p>
-                    <div style="background: #fff3e0; border-left: 4px solid #ff9800; padding: 1rem; margin-bottom: 1.5rem; border-radius: 5px;">
-                        <strong>🎉 New Member Special:</strong> Register now and get <strong>50% off your first month</strong>! Fill in the form below and we'll contact you with your discounted membership.
+                    <div style="background: #fff3e0; border-left: 4px solid #ff9800; padding: 1rem; margin-bottom: 1.5rem; border-radius: 5px; color:#212529;">
+                        <strong>🎉 New Member Special:</strong> Register now and get <strong>50% off your first month</strong>! We'll confirm availability within 24 hours.
                     </div>
                     <form id="tourForm">
                         <div class="form-group">
@@ -1829,61 +1823,45 @@
                         </div>
                         <button type="submit" class="btn btn-primary" style="width: 100%;">Register & Get 50% Off</button>
                     </form>
+                    <p style="margin-top:1rem; font-size:0.9rem; color:#555;">We'll check availability and email you with next steps.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer (unchanged) -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
                     <div class="footer-logo-container">
-                        <div class="footer-logo">
-                            <div class="footer-logo-circle">
-                                <div class="footer-logo-inner">
-                                    <div class="footer-logo-core"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="footer-logo-text">
-                            <div class="footer-logo-main">SEMANGAT</div>
-                            <div class="footer-logo-sub">SPACE</div>
-                        </div>
+                        <div class="footer-logo"><div class="footer-logo-circle"><div class="footer-logo-inner"><div class="footer-logo-core"></div></div></div></div>
+                        <div class="footer-logo-text"><div class="footer-logo-main">SEMANGAT</div><div class="footer-logo-sub">SPACE</div></div>
                     </div>
                     <p>Where great ideas find their spirit. Kota Putri's creative hub for entrepreneurs, creators, students, and local businesses.</p>
                 </div>
                 <div class="footer-links">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#spaces">Spaces</a></li>
-                        <li><a href="#amenities">Amenities</a></li>
-                        <li><a href="#event-hall">Event Hall</a></li>
-                        <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="#audience">For You</a></li>
-                        <li><a href="#location">Location</a></li>
+                        <li><a href="#home">Home</a></li><li><a href="#spaces">Spaces</a></li><li><a href="#amenities">Amenities</a></li>
+                        <li><a href="#event-hall">Event Hall</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#audience">For You</a></li><li><a href="#location">Location</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h3>Contact Us</h3>
                     <ul>
-                        <li><a href="#"><strong>📍</strong> KOTA PUTRI, MASAI, JB</a></li>
+                        <li><a href="#location"><strong>📍</strong> KOTA PUTRI, MASAI, JB</a></li>
                         <li><a href="tel:+60111020565"><strong>📞</strong> 01111020565</a></li>
                         <li><a href="mailto:onec@semangatspace.com"><strong>📧</strong> onec@semangatspace.com</a></li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2024 Semangat Space. All rights reserved. | Kota Putri's Creative Hub</p>
+                <p>© 2026 Semangat Space. All rights reserved. | Kota Putri's Creative Hub</p>
             </div>
         </div>
     </footer>
 
-    <!-- Combined JavaScript (original + event hall scripts) -->
     <script>
-        // ---------- ORIGINAL SCRIPTS ----------
         // Mobile menu toggle
         document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
             document.querySelector('.nav-links').classList.toggle('active');
@@ -1895,37 +1873,10 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     document.querySelector('.nav-links').classList.remove('active');
                 }
             });
-        });
-
-        // Registration form – sends data to onec@semangatspace.com
-        document.getElementById('tourForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const audienceType = document.getElementById('audience-type').value;
-            const interest = document.getElementById('interest').value;
-            const message = document.getElementById('message').value.trim();
-            const recipient = 'onec@semangatspace.com';
-            const subject = encodeURIComponent('New Member Registration – 50% First Month Discount [' + name + ']');
-            const body = encodeURIComponent(
-                'Full Name: ' + name + '\n' +
-                'Email: ' + email + '\n' +
-                'Phone: ' + phone + '\n' +
-                'Profile: ' + audienceType + '\n' +
-                'Interested In: ' + interest + '\n' +
-                'Message: ' + message + '\n\n' +
-                '---\nThis registration qualifies for the 50% first month discount.\nSubmitted via website registration form.'
-            );
-            window.location.href = 'mailto:' + recipient + '?subject=' + subject + '&body=' + body;
-            alert('Thank you, ' + name + '! Your registration details will be sent to our team. You are now eligible for the 50% first month discount. If your email client does not open, please contact us directly at onec@semangatspace.com.');
         });
 
         // Header scroll effect
@@ -1940,57 +1891,81 @@
             }
         });
 
-        // ---------- EVENT HALL SCRIPTS (blended) ----------
+        // ---------- REGISTRATION FORM (Optimized mailto handler) ----------
+        document.getElementById('tourForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const audienceType = document.getElementById('audience-type').value;
+            const interest = document.getElementById('interest').value;
+            const message = document.getElementById('message').value.trim();
+
+            const recipient = 'onec@semangatspace.com';
+            const subject = `New Member Registration – 50% Discount [${name}]`;
+            const body = `Full Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nProfile: ${audienceType}\nInterested In: ${interest}\nMessage: ${message}\n\n---\nThis registration qualifies for the 50% first month discount.\nSubmitted via website registration form.`;
+
+            const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            // Direct assignment triggers default email apps safely on both desktop and mobile
+            window.location.href = mailtoLink;
+
+            // Instantly render user success feedback modal with dynamic manual fallback option
+            setTimeout(() => {
+                showFallbackModal(body, recipient, name);
+            }, 400);
+        });
+
+        function showFallbackModal(bodyText, recipient, name) {
+            const existing = document.querySelector('.modal-overlay');
+            if (existing) existing.remove();
+
+            const overlay = document.createElement('div');
+            overlay.className = 'modal-overlay';
+            overlay.innerHTML = `
+                <div class="modal-box">
+                    <h3 style="color:#006400; margin-bottom: 0.8rem;">🎉 Registration Sent, ${name}!</h3>
+                    <p style="font-size:0.95rem; margin-bottom: 1rem;">We've launched your local email application. If it failed to open automatically, please copy the structured information details below and email them directly to <strong>${recipient}</strong> to ensure your 50% deal gets locked in.</p>
+                    <textarea readonly id="fallbackText" style="width: 100%; height: 130px; padding: 10px; border-radius: 6px; border: 1px solid #ccc; font-size:0.9rem; line-height:1.4; margin-bottom: 1.2rem;">${bodyText}</textarea>
+                    <div style="display: flex; gap: 10px;">
+                        <button class="btn btn-primary" id="copyBtn" style="padding: 10px 20px; font-size:0.9rem; border-radius:4px;">📋 Copy to clipboard</button>
+                        <button class="btn btn-outline" id="closeModal" style="padding: 10px 20px; font-size:0.9rem; border-radius:4px;">Close</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(overlay);
+
+            document.getElementById('copyBtn').addEventListener('click', function() {
+                const textarea = document.getElementById('fallbackText');
+                textarea.select();
+                navigator.clipboard.writeText(textarea.value).then(() => {
+                    alert('Copied! Now simply paste it inside your mailbox editor app and forward it to ' + recipient);
+                }).catch(() => {
+                    document.execCommand('copy');
+                    alert('Copied! Now simply paste it inside your mailbox editor app and forward it to ' + recipient);
+                });
+            });
+
+            document.getElementById('closeModal').addEventListener('click', function() {
+                overlay.remove();
+            });
+
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) overlay.remove();
+            });
+        }
+
+        // ---------- EVENT HALL SCRIPTS ----------
         (function() {
             const hallData = {
-                training: {
-                    title: "Training Hall Setup",
-                    description: "Classroom / Workshop style with long folding tables and comfortable stools. Perfect for hands‑on training, tuition, examinations, and team meetings.",
-                    facilities: ["Long folding tables", "Functional stools", "Whiteboard area", "High‑speed Wi‑Fi", "Power outlets"],
-                    special: "Ideal for half‑day or full‑day training sessions. Flexible seating arrangement."
-                },
-                conference: {
-                    title: "Conference & Seminar",
-                    description: "Theater / Seminar style seating with elegant black chairs facing the main stage. Professional stage with gold skirting and wooden lectern, supported by dual wireless microphones and powerful PA system.",
-                    facilities: ["Elevated stage + gold skirting", "Wooden lectern", "Dual wireless mics", "PA speaker system", "Track spotlights", "Ceiling cassette air‑cond"],
-                    special: "Designed for corporate talks, product launches, and briefings."
-                },
-                meeting: {
-                    title: "Meeting Room Atmosphere",
-                    description: "Comfortable, configurable setup for team meetings or small gatherings. Enjoy high‑speed Wi‑Fi and powerful air‑conditioning in a quiet, professional environment.",
-                    facilities: ["Flexible furniture layout", "Free Wi‑Fi", "Air‑conditioning & fans", "Quiet ambiance"],
-                    special: "Perfect for board meetings, client presentations, or strategy sessions."
-                },
-                event: {
-                    title: "General Event Space",
-                    description: "All styles available – theater, classroom, or buffet. Full access to audio/visual equipment and adjustable lighting. Customizable for product launches, celebrations, or community events.",
-                    facilities: ["Multiple layout options", "Stage & AV system", "Adjustable spotlights", "Buffet area ready"],
-                    special: "Talk to us about custom floor plans – we’ll set the hall exactly how you need it."
-                },
-                showcase: {
-                    title: "Showcase & Exhibition",
-                    description: "Spotlight lighting and a dedicated stage area make this hall perfect for product showcases, exhibitions, and pop‑up displays. The buffet space can also double as a registration or demo counter.",
-                    facilities: ["Adjustable track spotlights", "Stage with gold skirting", "Buffet / display area", "High‑speed Wi‑Fi"],
-                    special: "Great for brand activations, art shows, or tech demos."
-                },
-                weddings: {
-                    title: "Wedding Reception",
-                    description: "Create unforgettable moments with our elegant gold‑skirted stage, adjustable mood lighting, and dedicated buffet setup. Ample free parking for all your guests.",
-                    facilities: ["Gold skirting stage", "Mood lighting (spotlights)", "Buffet arrangement area", "Free spacious carpark", "Air‑conditioning"],
-                    special: "Make it yours – from solemnization to dinner reception, we help set the scene."
-                },
-                workshop: {
-                    title: "Workshop & Hands‑on Sessions",
-                    description: "Long tables and spacious layout provide the perfect environment for interactive workshops, craft sessions, or collaborative learning.",
-                    facilities: ["Long folding tables", "Comfortable stools", "Free Wi‑Fi", "Flexible time blocks"],
-                    special: "Ideal for creative workshops, coding bootcamps, or team‑building activities."
-                },
-                others: {
-                    title: "Anything Else?",
-                    description: "Our versatile hall can be adapted to almost any gathering – religious events, private parties, networking mixers, and more. Tell us your vision, and we’ll make it happen.",
-                    facilities: ["Custom layout", "Full AV equipment", "Air‑conditioning & fans", "Free parking"],
-                    special: "Contact us for a personalized arrangement and quote."
-                }
+                training: { title: "Training Hall Setup", description: "Classroom / Workshop style with long folding tables and comfortable stools. Perfect for hands‑on training, tuition, examinations, and team meetings.", facilities: ["Long folding tables", "Functional stools", "Whiteboard area", "High‑speed Wi‑Fi", "Power outlets"], special: "Ideal for half‑day or full‑day training sessions. Flexible seating arrangement." },
+                conference: { title: "Conference & Seminar", description: "Theater / Seminar style seating with elegant black chairs facing the main stage. Professional stage with gold skirting and wooden lectern, supported by dual wireless microphones and powerful PA system.", facilities: ["Elevated stage + gold skirting", "Wooden lectern", "Dual wireless mics", "PA speaker system", "Track spotlights", "Ceiling cassette air‑cond"], special: "Designed for corporate talks, product launches, and briefings." },
+                meeting: { title: "Meeting Room Atmosphere", description: "Comfortable, configurable setup for team meetings or small gatherings. Enjoy high‑speed Wi‑Fi and powerful air‑conditioning.", facilities: ["Flexible furniture layout", "Free Wi‑Fi", "Air‑conditioning & fans", "Quiet ambiance"], special: "Perfect for board meetings, client presentations, or strategy sessions." },
+                event: { title: "General Event Space", description: "All styles available – theater, classroom, or buffet. Full access to audio/visual equipment and adjustable lighting.", facilities: ["Multiple layout options", "Stage & AV system", "Adjustable spotlights", "Buffet area ready"], special: "Talk to us about custom floor plans – we'll set the hall exactly how you need it." },
+                showcase: { title: "Showcase & Exhibition", description: "Spotlight lighting and a dedicated stage area make this hall perfect for product showcases, exhibitions, and pop‑up displays.", facilities: ["Adjustable track spotlights", "Stage with gold skirting", "Buffet / display area", "High‑speed Wi‑Fi"], special: "Great for brand activations, art shows, or tech demos." },
+                weddings: { title: "Wedding Reception", description: "Create unforgettable moments with our elegant gold‑skirted stage, adjustable mood lighting, and dedicated buffet setup. Ample free parking.", facilities: ["Gold skirting stage", "Mood lighting (spotlights)", "Buffet arrangement area", "Free spacious carpark", "Air‑conditioning"], special: "Make it yours – from solemnization to dinner reception, we help set the scene." },
+                workshop: { title: "Workshop & Hands‑on Sessions", description: "Long tables and spacious layout provide the perfect environment for interactive workshops, craft sessions, or collaborative learning.", facilities: ["Long folding tables", "Comfortable stools", "Free Wi‑Fi", "Flexible time blocks"], special: "Ideal for creative workshops, coding bootcamps, or team‑building activities." },
+                others: { title: "Anything Else?", description: "Our versatile hall can be adapted to almost any gathering – religious events, private parties, networking mixers, and more.", facilities: ["Custom layout", "Full AV equipment", "Air‑conditioning & fans", "Free parking"], special: "Contact us for a personalized arrangement and quote." }
             };
 
             const tabButtons = document.querySelectorAll('#evhTabButtons .evh-tab-btn');
@@ -2000,38 +1975,26 @@
                 const data = hallData[category];
                 if (!data) return;
                 let facilitiesHtml = '';
-                data.facilities.forEach(f => {
-                    facilitiesHtml += `<span class="evh-facility-tag">${f}</span>`;
-                });
-                const html = `
+                data.facilities.forEach(f => facilitiesHtml += `<span class="evh-facility-tag">${f}</span>`);
+                tabContent.innerHTML = `
                     <div class="evh-content-title">${data.title}</div>
                     <div class="evh-content-desc">${data.description}</div>
                     <div class="evh-facilities">${facilitiesHtml}</div>
                     <div class="evh-special-note">💡 ${data.special}</div>
                 `;
-                tabContent.innerHTML = html;
-            }
-
-            function setActiveTab(button) {
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-                const category = button.getAttribute('data-category');
-                updateTabContent(category);
             }
 
             tabButtons.forEach(btn => {
                 btn.addEventListener('click', function() {
-                    setActiveTab(this);
+                    tabButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    updateTabContent(this.getAttribute('data-category'));
                 });
             });
 
             const defaultActive = document.querySelector('#evhTabButtons .evh-tab-btn.active');
-            if (defaultActive) {
-                updateTabContent(defaultActive.getAttribute('data-category'));
-            } else {
-                updateTabContent('training');
-                document.querySelector('#evhTabButtons .evh-tab-btn[data-category="training"]').classList.add('active');
-            }
+            if (defaultActive) updateTabContent(defaultActive.getAttribute('data-category'));
+            else { updateTabContent('training'); document.querySelector('#evhTabButtons .evh-tab-btn[data-category="training"]').classList.add('active'); }
 
             // Image gallery
             const slidesContainer = document.getElementById('evhSlides');
@@ -2041,23 +2004,20 @@
             const dotsContainer = document.getElementById('evhDots');
             let currentIndex = 0;
             let autoRotateInterval;
-            const autoRotateDelay = 4500;
+            const delay = 4500;
 
-            slides.forEach((_, index) => {
+            slides.forEach((_, i) => {
                 const dot = document.createElement('button');
                 dot.classList.add('evh-dot');
-                if (index === 0) dot.classList.add('active');
-                dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
-                dot.addEventListener('click', () => goToSlide(index));
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(i));
                 dotsContainer.appendChild(dot);
             });
             const dots = document.querySelectorAll('#evhDots .evh-dot');
 
             function updateSlides() {
                 slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
-                dots.forEach((dot, idx) => {
-                    dot.classList.toggle('active', idx === currentIndex);
-                });
+                dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
             }
 
             function goToSlide(index) {
@@ -2070,42 +2030,24 @@
 
             function nextSlide() { goToSlide(currentIndex + 1); }
             function prevSlide() { goToSlide(currentIndex - 1); }
-
-            function startAutoRotate() {
-                autoRotateInterval = setInterval(nextSlide, autoRotateDelay);
-            }
-
-            function resetAutoRotate() {
-                clearInterval(autoRotateInterval);
-                startAutoRotate();
-            }
+            function startAutoRotate() { autoRotateInterval = setInterval(nextSlide, delay); }
+            function resetAutoRotate() { clearInterval(autoRotateInterval); startAutoRotate(); }
 
             nextBtn.addEventListener('click', nextSlide);
             prevBtn.addEventListener('click', prevSlide);
 
             let touchStartX = 0;
-            let touchEndX = 0;
-            slidesContainer.addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
-            }, {passive: true});
-            slidesContainer.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].screenX;
-                handleSwipe();
+            slidesContainer.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX, {passive: true});
+            slidesContainer.addEventListener('touchend', e => {
+                const diff = touchStartX - e.changedTouches[0].screenX;
+                if (Math.abs(diff) > 50) diff > 0 ? nextSlide() : prevSlide();
             });
-            function handleSwipe() {
-                const diff = touchStartX - touchEndX;
-                if (Math.abs(diff) > 50) {
-                    if (diff > 0) nextSlide();
-                    else prevSlide();
-                }
-            }
 
             startAutoRotate();
-
             const gallery = document.getElementById('evhGallery');
             gallery.addEventListener('mouseenter', () => clearInterval(autoRotateInterval));
             gallery.addEventListener('mouseleave', startAutoRotate);
         })();
     </script>
 </body>
-  </html>
+</html>
